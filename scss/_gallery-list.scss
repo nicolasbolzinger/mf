@@ -1,0 +1,49 @@
+/* -------------------------------------------
+
+# .gallery-list
+
+------------------------------------------- */
+.gallery-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @include device(m) {
+    justify-content: space-between;
+  }
+
+}
+
+.gallery-list img {
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-list-item {
+  position: relative;
+  flex: 0 0 288px;
+  height: 288px;
+  margin-bottom: 1rem;
+
+  @include device(s) {
+    flex: 0 0 300px;
+    height: 300px;
+  }
+
+  @include device(l) {
+    flex: 0 0 300px;
+    height: 300px;
+  }
+
+  @include device(xl) {
+    flex: 0 0 350px;
+    height: 350px;
+  }
+
+}
+
+.gallery-list-title {
+  position: absolute;
+  bottom: 8px;
+  right: 24px;
+}

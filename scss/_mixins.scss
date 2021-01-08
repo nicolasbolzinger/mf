@@ -1,0 +1,27 @@
+/* -------------------------------------------
+
+# MIXINS MEDIAQUERIES
+
+------------------------------------------- */
+@mixin device($breakpoint) {
+  @media screen and (min-width: #{map-get($breakpoints, $breakpoint)}) {
+    @content;
+  }
+}
+
+/* -------------------------------------------
+
+# MIXINS FONT SIZE
+
+------------------------------------------- */
+@each $name, $size in $fontSize {
+  .font-#{$name} {
+    font-size: $size;
+  }
+}
+
+/* -------------------------------------------
+
+# MIXINS
+
+------------------------------------------- */

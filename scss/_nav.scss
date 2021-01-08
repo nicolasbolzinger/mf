@@ -1,0 +1,143 @@
+/* -------------------------------------------
+
+# NAVIGATION
+
+------------------------------------------- */
+.nav-top {
+
+  @include device(l) {
+    max-width: 650px;
+    width: 100%;
+  }
+  @include device(xl) {
+    max-width: 700px;
+  }
+
+}
+
+.nav-menu {
+  height: 100%; /* 100% Full-height */
+  width: 270px; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 999999; /* Stay on top */
+  top: 0; /* Stay at the top */
+  right: -270px;
+  background-color: #111;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 80px; /* Place content 60px from the top */
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
+  list-style: none;
+  margin: 0;
+  text-align: center;
+
+  .menu-item {
+    font-size: 1.333rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    @include device(l) {
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+  }
+
+  @include device(l) {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: absolute;
+    height: auto;
+    width: auto;
+    position: static;
+    background: transparent;
+    z-index: 999;
+    overflow-x: auto;
+    padding-top: 0px;
+  }
+
+}
+
+button.menu-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: $light;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include device(l) {
+    display: none;
+  }
+}
+
+.close {
+  position: absolute;
+  left: 20px;
+  top: 40px;
+  width: 32px;
+  height: 32px;
+}
+.close:before, .close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: $light;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
+
+.open {
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: $light;
+
+  &-top {
+    margin-bottom: 8px;
+  }
+  &-center {
+    margin-bottom: 8px;
+  }
+
+}
+
+/* TEST DROPDOWN */
+.menu-item-has-children {
+  a {
+    &:after {
+      content: url('../images/dropdown.svg');
+      position: absolute;
+    }
+  }
+  .sub-menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: none;
+    text-align: left;
+    width: content;
+    background: inherit;
+    @include device(l) {
+      position: absolute;
+      top: 75px;
+      background: #000;
+      padding: 0 0.5rem;
+    }
+    /* n'affiche pas l'icône dropdown à côté des liens sous-menu */
+    a {
+      &:after {
+        content: '';
+      }
+    }
+  }
+}

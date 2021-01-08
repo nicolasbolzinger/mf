@@ -1,0 +1,33 @@
+/* -------------------------------------------
+
+# .wpcf7 // Contact form
+
+------------------------------------------- */
+
+input[type="text"],
+input[type="email"],
+input[type="submit"],
+input[type="password"],
+textarea {
+  background: transparent;
+  border: 1px solid $font-light;
+  padding: 0.5rem;
+  color: $light;
+  &:focus {
+    outline: 1px solid $hover;
+  }
+  max-width: 100%;
+}
+
+.wpcf7 {
+  textarea {
+    color: $light;
+    width: 100%;
+  }
+}
+
+input[type="submit"] {
+  font-family: $serif;
+  font-weight: 300;
+  cursor: pointer;
+}

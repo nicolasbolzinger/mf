@@ -1,0 +1,74 @@
+/* -------------------------------------------
+
+# .front-page-content
+
+------------------------------------------- */
+.front-page {
+  position: relative;
+}
+.front-page-content {
+  position: absolute;
+  text-align: right;
+  top: 100px;
+  right: 0px;
+  @include device(m) {
+    right: 80px;
+  }
+  @include device(l) {
+    right: 120px;
+  }
+  @include device(xl) {
+    top: 130px;
+    right: 120px;
+  }
+
+  h1 {
+    line-height: 1;
+    font-size: 2.369rem;
+    @include device(s) {
+      font-size: 3.157rem
+    }
+    @include device(m) {
+      font-size: 4.509rem;
+    }
+  }
+
+  h2 {
+    font-size: 1rem;
+    @include device(m) {
+      font-size: 1.333rem
+    }
+  }
+}
+
+.front-page-background {
+  background-image: linear-gradient(to bottom, transparent 0%, rgba($dark, 0.0) 40%, rgba($dark, 0.8) 50%, rgba($dark, 1) 60%), url('../images/bg-port-500.jpg');
+  background-repeat: no-repeat;
+  background-size: 300px auto;
+  background-position: -160px 100px;
+
+  @include device(xs) {
+    background-position: -140px 100px;
+  }
+  @include device(s) {
+    background-image: linear-gradient(to bottom, transparent 0%, rgba($dark, 0.0) 50%, rgba($dark, 0.9) 70%, rgba($dark, 1) 80%), url('../images/bg-port-500.jpg');
+    background-size: 400px auto;
+    background-position: 30px 100px;
+  }
+  @include device(m) {
+    background-image: url('../images/bg-port-700.jpg');
+    background-size: 500px auto;
+    background-position: 0px 100px;
+  }
+  @include device(l) {
+    background-position: 20px 60px;
+  }
+  @include device(xl) {
+    background-image: url('../images/bg-port-1000.jpg');
+    background-position: 90px -10px;
+  }
+  @include device(xxl) {
+    background-image: linear-gradient(to bottom, transparent 0%, rgba($dark, 0.0) 70%, rgba($dark, 0.8) 78%, rgba($dark, 1) 85%), url('../images/bg-port-1000.jpg');
+    background-position: 220px 40px;
+  }
+}

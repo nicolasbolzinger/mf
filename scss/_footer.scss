@@ -1,0 +1,25 @@
+/* -------------------------------------------
+
+# FOOTER
+
+------------------------------------------- */
+
+.site-footer {
+  font-size: 0.85rem;
+  .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+}
+
+.social-icons {
+  display: flex;
+  flex: 0 0 70px;
+  order: 2;
+  justify-content: space-between;
+  align-items: center;
+
+}

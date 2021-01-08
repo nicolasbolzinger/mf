@@ -1,0 +1,34 @@
+/* -------------------------------------------
+
+# MASONRY
+
+------------------------------------------- */
+.wp-block-gallery {
+  margin-top: 60px;
+}
+
+.blocks-gallery-grid.columns-3 .blocks-gallery-image,
+.blocks-gallery-grid.columns-3 .blocks-gallery-item,
+.wp-block-gallery.columns-3 .blocks-gallery-image,
+.wp-block-gallery.columns-3 .blocks-gallery-item {
+  margin: 0;
+  max-width: 400px;
+  width: 100%;
+}
+
+.blocks-gallery-grid.columns-2 .blocks-gallery-image,
+.blocks-gallery-grid.columns-2 .blocks-gallery-item,
+.wp-block-gallery.columns-2 .blocks-gallery-image,
+.wp-block-gallery.columns-2 .blocks-gallery-item {
+  margin: 0;
+  max-width: 600px;
+  width: 100%;
+}
+
+.blocks-gallery-grid.columns-1 .blocks-gallery-image,
+.blocks-gallery-grid.columns-1 .blocks-gallery-item,
+.wp-block-gallery.columns-1 .blocks-gallery-image,
+.wp-block-gallery.columns-1 .blocks-gallery-item {
+  margin: 0;
+  width: 100%;
+}
