@@ -126,8 +126,8 @@ function social_icons() {
   </svg>';
 
   $html = '<div class="social-icons">';
-    $html .= '<a href="https://www.instagram.com/marine_fau44/" title="Compte Instagram Marine Fau">' . $instagram_icon . '</a>';
-    $html .= '<a href="https://www.facebook.com/M-FAU-Photographie-2220969988010287/" title="Compte Facebook Marine Fau">' . $facebook_icon . '</a>';
+    $html .= '<a href="https://www.instagram.com/marinefau_44/" title="Compte Instagram Marine Fau">' . $instagram_icon . '</a>';
+    $html .= '<a href="https://www.facebook.com/profile.php?id=100064050225072" title="Compte Facebook Marine Fau">' . $facebook_icon . '</a>';
   $html .= '</div>';
 
   echo $html;

@@ -14,7 +14,7 @@ function site_branding() {
         $siteUrl = esc_html( get_bloginfo('url') );
         $nom = esc_html( get_bloginfo( 'name' ) );
         $desc = esc_html( get_bloginfo( 'description' ) );
-        $logo = esc_url( get_stylesheet_directory_uri() . '/images/marine-fau-logo.png' );
+        $logo = esc_url( get_stylesheet_directory_uri() . '/images/mflogo-2023.png' );
 
         if ( is_front_page() ) {
             $html .= '<img src="' . $logo . '" alt="Marine Fau - Logo" width="70px" height="70px">';
