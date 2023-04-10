@@ -100,40 +100,49 @@ function traduction() {
 
 /* -------------------------------------------
 
-# .site-footer
+# WIDGET LIENS VERS RESEAUX SOCIAUX
 
+// Ajouter les champs de saisie pour les URLs Facebook et Instagram dans les options de thème
 ------------------------------------------- */
-add_action( 'genesis_footer', 'social_icons' );
-function social_icons() {
-  $facebook_icon = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-   width="266.893px" height="266.895px" viewBox="0 0 266.893 266.895" enable-background="new 0 0 266.893 266.895"
-   xml:space="preserve">
-  <path id="Blue_1_" fill="" d="M248.082,262.307c7.854,0,14.223-6.369,14.223-14.225V18.812
-  c0-7.857-6.368-14.224-14.223-14.224H18.812c-7.857,0-14.224,6.367-14.224,14.224v229.27c0,7.855,6.366,14.225,14.224,14.225
-  H248.082z"/>
-  <path id="f" fill="#000" d="M182.409,262.307v-99.803h33.499l5.016-38.895h-38.515V98.777c0-11.261,3.127-18.935,19.275-18.935
-  l20.596-0.009V45.045c-3.562-0.474-15.788-1.533-30.012-1.533c-29.695,0-50.025,18.126-50.025,51.413v28.684h-33.585v38.895h33.585
-  v99.803H182.409z"/>
-  </svg>';
 
-  $instagram_icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <path
-    d="M256,49.471c67.266,0,75.233.257,101.8,1.469,24.562,1.121,37.9,5.224,46.778,8.674a78.052,78.052,0,0,1,28.966,18.845,78.052,78.052,0,0,1,18.845,28.966c3.45,8.877,7.554,22.216,8.674,46.778,1.212,26.565,1.469,34.532,1.469,101.8s-0.257,75.233-1.469,101.8c-1.121,24.562-5.225,37.9-8.674,46.778a83.427,83.427,0,0,1-47.811,47.811c-8.877,3.45-22.216,7.554-46.778,8.674-26.56,1.212-34.527,1.469-101.8,1.469s-75.237-.257-101.8-1.469c-24.562-1.121-37.9-5.225-46.778-8.674a78.051,78.051,0,0,1-28.966-18.845,78.053,78.053,0,0,1-18.845-28.966c-3.45-8.877-7.554-22.216-8.674-46.778-1.212-26.564-1.469-34.532-1.469-101.8s0.257-75.233,1.469-101.8c1.121-24.562,5.224-37.9,8.674-46.778A78.052,78.052,0,0,1,78.458,78.458a78.053,78.053,0,0,1,28.966-18.845c8.877-3.45,22.216-7.554,46.778-8.674,26.565-1.212,34.532-1.469,101.8-1.469m0-45.391c-68.418,0-77,.29-103.866,1.516-26.815,1.224-45.127,5.482-61.151,11.71a123.488,123.488,0,0,0-44.62,29.057A123.488,123.488,0,0,0,17.3,90.982C11.077,107.007,6.819,125.319,5.6,152.134,4.369,179,4.079,187.582,4.079,256S4.369,333,5.6,359.866c1.224,26.815,5.482,45.127,11.71,61.151a123.489,123.489,0,0,0,29.057,44.62,123.486,123.486,0,0,0,44.62,29.057c16.025,6.228,34.337,10.486,61.151,11.71,26.87,1.226,35.449,1.516,103.866,1.516s77-.29,103.866-1.516c26.815-1.224,45.127-5.482,61.151-11.71a128.817,128.817,0,0,0,73.677-73.677c6.228-16.025,10.486-34.337,11.71-61.151,1.226-26.87,1.516-35.449,1.516-103.866s-0.29-77-1.516-103.866c-1.224-26.815-5.482-45.127-11.71-61.151a123.486,123.486,0,0,0-29.057-44.62A123.487,123.487,0,0,0,421.018,17.3C404.993,11.077,386.681,6.819,359.866,5.6,333,4.369,324.418,4.079,256,4.079h0Z"/>
-  <path
-    d="M256,126.635A129.365,129.365,0,1,0,385.365,256,129.365,129.365,0,0,0,256,126.635Zm0,213.338A83.973,83.973,0,1,1,339.974,256,83.974,83.974,0,0,1,256,339.973Z"/>
-  <circle
-    cx="390.476" cy="121.524" r="30.23"/>
-  </svg>';
+function ajouter_champs_options_theme() {
+  add_settings_section("section-reseaux-sociaux", "Réseaux sociaux", null, "general");
+  add_settings_field("facebook-url", "URL Facebook", "afficher_champ_facebook", "general", "section-reseaux-sociaux");
+  add_settings_field("instagram-url", "URL Instagram", "afficher_champ_instagram", "general", "section-reseaux-sociaux");
 
-  $html = '<div class="social-icons">';
-    $html .= '<a href="https://www.instagram.com/marinefau_44/" title="Compte Instagram Marine Fau">' . $instagram_icon . '</a>';
-    $html .= '<a href="https://www.facebook.com/profile.php?id=100064050225072" title="Compte Facebook Marine Fau">' . $facebook_icon . '</a>';
-  $html .= '</div>';
-
-  echo $html;
+  register_setting("general", "facebook-url");
+  register_setting("general", "instagram-url");
 }
 
+function afficher_champ_facebook() {
+  $facebook_url = get_option('facebook-url');
+  echo "<input type='text' name='facebook-url' value='$facebook_url' />";
+}
 
+function afficher_champ_instagram() {
+  $instagram_url = get_option('instagram-url');
+  echo "<input type='text' name='instagram-url' value='$instagram_url' />";
+}
+add_action("admin_init", "ajouter_champs_options_theme");
+
+function social_icons() {
+  $facebook_icon = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="266.893px" height="266.895px" viewBox="0 0 266.893 266.895" enable-background="new 0 0 266.893 266.895" xml:space="preserve"><path id="Blue_1_" fill="" d="M248.082,262.307c7.854,0,14.223-6.369,14.223-14.225V18.812 c0-7.857-6.368-14.224-14.223-14.224H18.812c-7.857,0-14.224,6.367-14.224,14.224v229.27c0,7.855,6.366,14.225,14.224,14.225 H248.082z"/><path id="f" fill="#000" d="M182.409,262.307v-99.803h33.499l5.016-38.895h-38.515V98.777c0-11.261,3.127-18.935,19.275-18.935 l20.596-0.009V45.045c-3.562-0.474-15.788-1.533-30.012-1.533c-29.695,0-50.025,18.126-50.025,51.413v28.684h-33.585v38.895h33.585 v99.803H182.409z"/></svg>';
+  $instagram_icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256,49.471c67.266,0,75.233.257,101.8,1.469,24.562,1.121,37.9,5.224,46.778,8.674a78.052,78.052,0,0,1,28.966,18.845,78.052,78.052,0,0,1,18.845,28.966c3.45,8.877,7.554,22.216,8.674,46.778,1.212,26.565,1.469,34.532,1.469,101.8s-0.257,75.233-1.469,101.8c-1.121,24.562-5.225,37.9-8.674,46.778a83.427,83.427,0,0,1-47.811,47.811c-8.877,3.45-22.216,7.554-46.778,8.674-26.56,1.212-34.527,1.469-101.8,1.469s-75.237-.257-101.8-1.469c-24.562-1.121-37.9-5.225-46.778-8.674a78.051,78.051,0,0,1-28.966-18.845,78.053,78.053,0,0,1-18.845-28.966c-3.45-8.877-7.554-22.216-8.674-46.778-1.212-26.564-1.469-34.532-1.469-101.8s0.257-75.233,1.469-101.8c1.121-24.562,5.224-37.9,8.674-46.778A78.052,78.052,0,0,1,78.458,78.458a78.053,78.053,0,0,1,28.966-18.845c8.877-3.45,22.216-7.554,46.778-8.674,26.565-1.212,34.532-1.469,101.8-1.469m0-45.391c-68.418,0-77,.29-103.866,1.516-26.815,1.224-45.127,5.482-61.151,11.71a123.488,123.488,0,0,0-44.62,29.057A123.488,123.488,0,0,0,17.3,90.982C11.077,107.007,6.819,125.319,5.6,152.134,4.369,179,4.079,187.582,4.079,256S4.369,333,5.6,359.866c1.224,26.815,5.482,45.127,11.71,61.151a123.489,123.489,0,0,0,29.057,44.62,123.486,123.486,0,0,0,44.62,29.057c16.025,6.228,34.337,10.486,61.151,11.71,26.87,1.226,35.449,1.516,103.866,1.516s77-.29,103.866-1.516c26.815-1.224,45.127-5.482,61.151-11.71a128.817,128.817,0,0,0,73.677-73.677c6.228-16.025,10.486-34.337,11.71-61.151,1.226-26.87,1.516-35.449,1.516-103.866s-0.29-77-1.516-103.866c-1.224-26.815-5.482-45.127-11.71-61.151a123.486,123.486,0,0,0-29.057-44.62A123.487,123.487,0,0,0,421.018,17.3C404.993,11.077,386.681,6.819,359.866,5.6,333,4.369,324.418,4.079,256,4.079h0Z"/> <path d="M256,126.635A129.365,129.365,0,1,0,385.365,256,129.365,129.365,0,0,0,256,126.635Zm0,213.338A83.973,83.973,0,1,1,339.974,256,83.974,83.974,0,0,1,256,339.973Z"/> <circle cx="390.476" cy="121.524" r="30.23"/> </svg>';
+  $facebook_url = get_option('facebook-url');
+  $instagram_url = get_option('instagram-url');
+
+  if ($facebook_url != '' || $instagram_url != '') {
+    echo '<div class="social-icons">';
+    if ($facebook_url != '') {
+      echo '<a href="' . esc_url($facebook_url) . '" target="_blank">'. $facebook_icon . '</a>';
+    }
+    if ($instagram_url != '') {
+      echo '<a href="' . esc_url($instagram_url) . '" target="_blank">'. $instagram_icon . '</a>';
+    }
+    echo '</div>';
+  }
+}
+add_action( 'genesis_footer', 'social_icons' );
 /* -------------------------------------------
 
 # LISTE GALERIE
@@ -342,4 +351,22 @@ wp_add_dashboard_widget('custom_help_widget', 'Aide WordPress', 'custom_dashboar
 
 function custom_dashboard_help() {
 echo '<p>Besoin d\'aide sur la prise en main de WordPress ?<br> N\'hésitez pas à consulter la <a href="https://nicolasbolzinger.github.io/aide/index.html" title="Documentation WordPress">documentation</a>. <br>Contacter votre webmaster : hello@nicolasbolzinger.com</p>';
+}
+
+/* -------------------------------------------
+
+# RETRAIT DES OPTIONS DE PERSONNALISATION APPARENCE SITE
+
+Fonction qui retire les options dans l'onglet Apparence --> Personnaliser
+------------------------------------------- */
+
+// add_action( 'customize_register', 'remove_all_customize_sections', 99 );
+function remove_all_customize_sections( $wp_customize ){
+    $wp_customize->remove_panel( 'themes' );
+    $wp_customize->remove_panel( 'widgets' );
+    $wp_customize->remove_panel( 'menus' );
+    $wp_customize->remove_section( 'title_tagline' );
+    $wp_customize->remove_section( 'static_front_page' );
+    $wp_customize->remove_section( 'nav_menus' );
+    $wp_customize->remove_section( 'custom_css' );
 }
