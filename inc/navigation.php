@@ -1,34 +1,41 @@
 <?php
 
-add_theme_support( 'genesis-menus',
-  array(
-    // 'primary' => __( 'Primary Navigation Menu', 'genesis' ),
-    // 'secondary' => __( 'Secondary Navigation Menu', 'genesis' )
-    'menu-principal' => __( 'Menu Principal', 'genesis' )
-  )
 
-);
+/*-----------------------------
+LOGO + NOM DU SITE + SLOGAN
+------------------------------*/
 
-add_action( 'genesis_site_title', 'site_branding');
-function site_branding() {
-        $siteUrl = esc_html( get_bloginfo('url') );
-        $nom = esc_html( get_bloginfo( 'name' ) );
-        $desc = esc_html( get_bloginfo( 'description' ) );
-        $logo = esc_url( get_stylesheet_directory_uri() . '/images/mflogo-2023.png' );
-
-        if ( is_front_page() ) {
-            $html .= '<img src="' . $logo . '" alt="Marine Fau - Logo" width="70px" height="70px">';
-        }
-
-        else {
-            $html = '<a href="' . $siteUrl . '" title="Accueil - Marine Fau">';
-            $html .= '<h1 class="no-margin-padding text-serif text-light text-thin font-size-3">' . $nom . '</h1>';
-            $html .= '<h2 class="no-margin-padding text-sans-serif text-dark text-thin font-size-5">' . $desc . '</h2>';
-            $html .= '</a>';
-        }
-
-  echo $html;
+add_filter( 'genesis_markup_site-title', 'customTitre' );
+function customTitre() {
+  $customTitre = esc_attr( get_bloginfo( 'name' ));
+    $html = '<h2 class="brand-name no-margin-padding text-serif text-light text-thin font-size-3">';
+      $html .= $customTitre;
+    $html .= '</h2>';
+  return $html;
 }
+
+add_filter( 'genesis_markup_site-description', 'customDescription' );
+function customDescription() {
+  $customDescription = esc_attr( get_bloginfo( 'description' ));
+    $html = '<h3 class="brand-tag no-margin-padding text-sans-serif text-dark text-thin font-size-5">';
+      $html .= $customDescription;
+    $html .= '</h3>';
+  return $html;
+}
+
+remove_action( 'genesis_site_title', 'the_custom_logo' );
+add_action( 'genesis_site_title', 'branding' );
+function branding() {
+  if ( !is_front_page() ) {
+  ?> <div class="brand"> <?php
+    $titre = genesis_seo_site_title();
+    $slogan = genesis_seo_site_description();
+  ?></div><?php
+  }
+  }
+/*-----------------------------
+MENU
+------------------------------*/
 
 //* Supprime la navigation après le bloc .site-header
 remove_action( 'genesis_after_header', 'genesis_do_nav' );

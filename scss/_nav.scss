@@ -141,3 +141,47 @@ button.menu-toggle {
     }
   }
 }
+
+.singular {
+  .title-area {
+    .custom-logo-link {
+      display: none;
+      @include device(l) {
+        display: flex;
+      }
+    }
+  }
+}
+
+.title-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 295px;
+
+  .custom-logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: 2;
+    width: 60x;
+    height: 60px;
+    img {
+      width: 60px;
+      height: 60px;
+    }
+    @include device(l) {
+      order: 1;
+    }
+  }
+  .brand {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    order: 1;
+    @include device(l) {
+      order: 2;
+    }
+  }
+
+}

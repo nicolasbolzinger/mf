@@ -11,8 +11,22 @@ add_theme_support(
   )
 );
 
+add_theme_support( 'genesis-menus', array(
+	'menu-principal' => __( 'Menu Principal', 'genesis' ),
+  ) );
+
 
 add_theme_support( 'genesis-responsive-viewport' );
+
+add_theme_support(
+    'genesis-custom-logo',
+    [
+        'height'      => 350,
+        'width'       => 350,
+        'flex-height' => true,
+        'flex-width'  => true,
+    ]
+);
 
 
 //* SUPPRIME OU AJOUTE .wrap autours des éléments listés
@@ -21,7 +35,7 @@ add_theme_support(
   array(
     'header',
     // 'menu-primary',
-    'menu-secondary',
+    // 'menu-secondary',
     // 'site-inner',
     'footer-widgets',
     'footer',
@@ -47,6 +61,8 @@ remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 remove_action( 'genesis_site_title', 'genesis_seo_site_title' );
 //* Supprime les méta données de .entry-header
 remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
+//* Supprime le titre dans le header
+remove_action( 'genesis_header', 'genesis_seo_site_title' );
 
 //# Ajoute un wrap .content-area
 add_filter( 'genesis_attr_content-sidebar-wrap', 'change_content_sidebar_wrap' );
